@@ -22,7 +22,7 @@ class TaskManager:
 
     def get_task_by_id(self, task_id):
         for task in self.tasks:
-            if task.id == task.id:
+            if task.id == task_id:
                 return task
 
         raise ValueError("Задание не найдено")
@@ -56,7 +56,7 @@ class TaskManager:
         self.tasks.remove(task)
 
     def save_to_json(self, filename="data/tasks.json"):
-        data = [Task.to_dict() for task in self.tasks]
+        data = [task.to_dict() for task in self.tasks]
 
         folder_patch = Path("data")
         if not folder_patch.is_dir():
